@@ -1,323 +1,42 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap" rel="stylesheet">
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahmoud Store</title>
-  <style>
-    body {
-  font-family: 'Tajawal', sans-serif;
-  font-weight: 700;
-}
-footer {
-            background-color: #333;
-            color: #fff;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سنعود قريبا</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            direction: rtl; /* Right-to-left for Arabic */
+        }
+        .container {
             text-align: center;
-            padding: 10px;
-  
-      margin: 10px;
-      border-radius: 10px;
-            margin-top: 30px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-    header {
-      background-color: #262626;
-      padding: 20px;
-      
-      margin: 10px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    header img {
-      width: 200px;
-      height: auto;
-    }
-    body {
-            background:linear-gradient(135deg, #f9f9f9, #e6f0ff);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
         }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px;
-    }
-    .product {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin: 10px;
-      padding: 15px;
-      width: 100%;
-      max-width: 300px;
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    .product h3 {
-      margin: 10px 0;
-    }
-    .product p {
-      color: #555;
-    }
-    .buy-btn {
-      background-color: #2e8b57;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .buy-btn:hover {
-      background-color: #246b45;
-    }
-
-    .details {
-      display: none;
-      margin-top: 15px;
-      background-color: #e0f8eb;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    @media (min-width: 600px) {
-      .product {
-        width: 45%;
-      }
-    }
-
-    @media (min-width: 900px) {
-      .product {
-        width: 30%;
-      }
-    }
-  </style>
-
-<style>
-/* مودال حديث */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-  animation: fadeIn 0.5s;
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  width: 70%; /* تم تقليص العرض */
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  animation: slideIn 0.5s;
-  position: relative;
-  text-align: center;
-}
-
-
-.close {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-textarea {
-  width: 100%;
-  height: 120px;
-  margin-top: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  resize: none;
-  font-size: 16px;
-}
-
-.buy-btn {
-  background-color: #25D366;
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  margin-top: 20px;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buy-btn:hover {
-  background-color: #1ebe57;
-}
-footer {
-      background-color: #262626;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
-      font-size: 14px;
-}
-/* حركات لطيفة */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes slideIn {
-  from {transform: translateY(-50px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
-}
-</style>
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-
-<header>
-   <img src="logo.png" width="300" height="130" alt="وصف للصورة">
-
-
-</header>
-
-<div class="container">
-<div class="product">
-    <h3>رصيد 5000</h3>
-     <img src="syp.png" alt=>
-    <p>السعر 0.65$</p>
-  <p>رمز المنتج SYP 5</p>
-    <button class="buy-btn" onclick="openModal()">شراء</button>
-    <div class="details">
-      <img src="qr.jpg" alt="السعر 1.30$">
-      
+    <div class="container">
+        <h1>سنعود قريبا!</h1>
+        <p>نحن نعمل حاليًا على إجراء بعض التحسينات وسنعود قريبًا.</p>
+        <p>شكرًا لصبركم.</p>
     </div>
-  </div>
-  <div class="product">
-    <h3>رصيد 10000</h3>
-     <img src="syp.png" alt=>
-    <p>السعر 1.30$</p>
-    <p>رمز المنتج SYP 10</p>
-    <button class="buy-btn" onclick="openModal()">شراء</button>
-    <div class="details">
-      <img src="qr.jpg" alt="السعر 1.30$">
-      <p>عند الارسال ضع الرقم بالملاحظة ورمز المنتج SYP 10</p>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>رصيد 20000</h3>
-     <img src="syp.png" alt=>
-    <p>السعر 2.60$</p>
-    <p>رمز المنتج SYP 20</p>
-    <button class="buy-btn" onclick="openModal()">شراء</button>
-    <div class="details">
-      <img src="qr.jpg" alt="السعر 1.30$">
-      <p>عند الارسال ضع الرقم بالملاحظة ورمز المنتج SYP 20</p>
-    </div>
-  </div>
-  <div class="product">
-    <h3>رصيد 30000</h3>
-   
-     <img src="syp.png" alt=>
-    <p>السعر 3.90$</p>
-    <p>رمز المنتج SYP 30</p>
-    <button class="buy-btn" onclick="openModal()">شراء</button>
-    <div class="details">
-      <img src="qr.jpg" alt="السعر 1.30$">
-      <p>عند الارسال ضع الرقم بالملاحظة ورمز المنتج SYP 30</p>
-    </div>
-  </div>
-  <div class="product">
-    <h3>رصيد 50000</h3>
-    
-     <img src="syp.png" alt=>
-    <p>السعر 6.50$</p>
-    <p>رمز المنتج SYP 50</p>
-    <button class="buy-btn" onclick="openModal()">شراء</button>
-    <div class="details">
-      <img src="qr.jpg" alt="السعر 1.30$">
-      <p>عند الارسال ضع الرقم بالملاحظة ورمز المنتج SYP 50</p>
-    </div>
-  </div>
-
-
-</div>
-
-<div class="product">
-    <div class="service-box">
-        <h2>Mahmoud Store</h2>
-        <p>شحن جميع تطبيقات التواصل الاجتماعي مثل TikTok Bigo Live وغيرها</p>
-           <a href="https://wa.me/963947900160" target="_blank">
-    <button class="buy-btn">تواصل معنا عبر الواتساب</button>
-</a>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2025 Mahmoud Store | جميع الحقوق محفوظة</p>
-   <marquee direction="right">برمجة وتصميم محمود الشب</marquee>
-    
-</footer>
-
-<!-- مودال الرسالة -->
-<div id="messageModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>أدخل رقمك</h2>
-    <textarea id="userMessage" placeholder="أدخل الرقم هنا"></textarea><br><br>
-    <button class="buy-btn" onclick="sendWhatsApp()">أرسل عبر واتساب</button>
-    <div style="margin-top: 20px;">
-      <p>عند الارسال ضع الرقم بالملاحظة ورمز المنتج</p>
-      <img src="https://www2.0zz0.com/2025/04/26/14/798357617.jpg" alt="باركود الدفع" style="width: 200px; height: 200px;">
-      <p>aee0f5dd46d3a9673de0d302681d89a0</p>
-
-    </div>
-  </div>
-</div>
-
-<script>
-  function openModal() {
-    document.getElementById('messageModal').style.display = 'block';
-  }
-
-  function closeModal() {
-    document.getElementById('messageModal').style.display = 'none';
-  }
-
-  function sendWhatsApp() {
-    var message = document.getElementById('userMessage').value;
-    if (message.trim() !== "") {
-      var phoneNumber = "963947900160";
-      var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-      window.open(url, '_blank');
-      closeModal();
-    } else {
-      alert("يرجى كتابة رسالة قبل الإرسال.");
-    }
-  }
-
-  // إغلاق المودال إذا تم الضغط بالخارج
-  window.onclick = function(event) {
-    var modal = document.getElementById('messageModal');
-    if (event.target == modal) {
-      closeModal();
-    }
-  }
-</script>
-
 </body>
 </html>
