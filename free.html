@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@500&display=swap');
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Tajawal', sans-serif;
+            text-align: center;
+        }
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #444;
+            font-family: 'Cairo', sans-serif;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .product {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            color: #444;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .product p {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #28a745;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .product button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .product button:hover {
+            background-color: #0056b3;
+        }
+        .barcode-container {
+            display: none;
+            background-color: #fff;
+            color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .barcode-container p.price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .barcode-container img {
+            width: 200px;
+            height: 200px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #ddd;
+            color: #333;
+            font-size: 0.9rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+    <script>
+        function showBarcode(productName, price) {
+            let barcodeContainer = document.getElementById("barcode");
+            barcodeContainer.innerHTML = `
+                <p class="price">السعر: $${price}</p>
+                <p>دفع لـ ${productName}</p>
+                <img src="qr.png" alt="باركود الدفع">
+                <p>يرجى وضع الايدي المراد التحويل اليه في الملاحظة عند الدفع</p>
+            `;
+            barcodeContainer.style.display = "block";
+        }
+
+        document.addEventListener("click", function(event) {
+            let barcodeContainer = document.getElementById("barcode");
+            if (!event.target.closest(".product button")) {
+                barcodeContainer.style.display = "none";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="logo">Mahmoud Store</div>
+    <p>FREE FIRE قسم جواهر</p>
+
+    <div class="products">
+        <div class="product">
+            <img src="free.png" alt="ماوس جيمينج">
+            <h3>100 Diamond</h3>
+            <p>1$ السعر</p>
+            <button onclick="showBarcode('100', 1)">شراء</button>
+        </div>
+
+        <div class="product">
+            <img src="free.png" alt="ماوس جيمينج">
+            <h3>210 Diamond</h3>
+            <p>2$ السعر</p>
+            <button onclick="showBarcode('210', 2)">شراء</button>
+        </div>
+
+        <div class="product">
+             <img src="free.png" alt="ماوس جيمينج">
+            <h3>550 Diamond</h3>
+            <p>5$ السعر</p>
+            <button onclick="showBarcode('550', 5)">شراء</button>
+        </div>
+
+        <div class="product">
+             <img src="free.png" alt="ماوس جيمينج">
+            <h3>1080 Diamond</h3>
+            <p>10$ السعر</p>
+            <button onclick="showBarcode('1080', 10)">شراء</button>
+        </div>
+    </div>
+
+    <div id="barcode" class="barcode-container"></div>
+
+    <div class="footer">
+        © 2025 Mahmoud Store. جميع الحقوق محفوظة.
+         <p>برمجة وتصميم محمود مغلاج (الشب) </p>
+    </div>
+</body>
+</html>

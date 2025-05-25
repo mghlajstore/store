@@ -1,42 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سنعود قريبا</title>
+    <title>Home</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@500&display=swap');
+
         body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
             background-color: #f4f4f4;
-            direction: rtl; /* Right-to-left for Arabic */
-        }
-        .container {
-            text-align: center;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
             color: #333;
-            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
         }
-        p {
-            color: #666;
-            margin-bottom: 20px;
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #444;
+            font-family: 'Cairo', sans-serif;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .product {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            color: #444;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .product p {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #28a745;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .product button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #ddd;
+            color: #333;
+            font-size: 0.9rem;
+            font-family: 'Tajawal', sans-serif;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>سنعود قريبا!</h1>
-        <p>نحن نعمل حاليًا على إجراء بعض التحسينات وسنعود قريبًا.</p>
-        <p>شكرًا لصبركم.</p>
+    <div class="logo">Mahmoud Store</div>
+    
+    <p>Mahmoud Store مرحبا بكم بــ </p>
+   
+    <div class="products">
+        <div class="product">
+            <img src="mtn.png" alt="رصيد MTN">
+            <h3>MTN رصيد</h3>
+            <p>MTN رصيد</p>
+            <button onclick="window.location.href='mtn.html'">عرض</button>
+        </div>
+
+        <div class="product">
+            <img src="syriatel.png" alt="رصيد Syriatel">
+            <h3>Syriatel رصيد</h3>
+            <p>Syriatel رصيد</p>
+            <button onclick="window.location.href='syriatel.html'">عرض</button>
+        </div>
+
+        <div class="product">
+            <img src="pubg.png" alt="Pubg Mobile">
+            <h3>PUBG MOBILE</h3>
+            <p>PUBG MOBILE شدات</p>
+            <button onclick="window.location.href='pubg.html'">عرض</button>
+        </div>
+
+        <div class="product">
+            <img src="free.png" alt="Free Fire">
+            <h3>Free Fire</h3>
+            <p>Free Fire جواهر</p>
+            <button onclick="window.location.href='free.html'">عرض</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 Mahmoud Store. جميع الحقوق محفوظة.
+        <p>برمجة وتصميم محمود مغلاج (الشب) </p>
     </div>
 </body>
 </html>
