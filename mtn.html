@@ -105,10 +105,19 @@
                 <p>دفع لـ ${productName}</p>
                 <img src="qr.png" alt="باركود الدفع">
                 <p>يرجى وضع الرقم المراد التحويل اليه في الملاحظة</p>
+  <button onclick="downloadBarcode()">تحميل الباركود</button>
             `;
             barcodeContainer.style.display = "block";
         }
-
+function downloadBarcode() {
+            const imageUrl = "qr.png"; // استبدل هذا بالمسار الصحيح لصورة الباركود
+            const link = document.createElement("a");
+            link.href = imageUrl;
+            link.download = "barcode.png";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
         document.addEventListener("click", function(event) {
             let barcodeContainer = document.getElementById("barcode");
             if (!event.target.closest(".product button")) {
