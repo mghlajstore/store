@@ -13,10 +13,13 @@
             font-family: 'Orbitron', sans-serif;
             text-align: center;
         }
-        .logo {
+         .logo {
             font-size: 3rem;
             font-weight: bold;
             color: #444;
+            
+            border-radius: 15px;
+            background-color: #2F4F4F;
             font-family: 'Cairo', sans-serif;
         }
        
@@ -89,10 +92,19 @@
         .whatsapp-btn:hover {
             background-color: #1DA851;
         }
+ .logo img {
+    width: 300px; /* تعديل العرض */
+    height: auto; /* الحفاظ على النسبة الأصلية */
+        margin-top: 15px;   
+}
     </style>
 </head>
 <body>
-    <div class="logo">Mahmoud Store</div>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="logo.png" alt="Mahmoud Store Logo">
+        </div>
+    </div>
     <p>Mahmoud Store مرحبا بكم بــ </p>
    
 
