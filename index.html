@@ -1,147 +1,1777 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>بيانات الاخوة</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Tajawal:wght@500&display=swap');
-
         body {
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #333;
-            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 20px;
             text-align: center;
         }
-         .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #444;
-            
-            border-radius: 15px;
-            background-color: #0B3632;
-            font-family: 'Cairo', sans-serif;
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-       
-        .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+        h1 {
+            color: #333;
         }
-        .product {
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            text-align: right;
+            direction: rtl;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* المسافة بين البطاقات */
+            margin-top: 20px;
+        }
+        .card {
             background-color: #fff;
             padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .product h3 {
-            margin: 10px 0;
-            color: #444;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .product p {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #28a745;
-            font-family: 'Tajawal', sans-serif;
-        }
-        .product button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 12px;
-        }
-        .product button:hover {
-            background-color: #218838;
-        }
-        .footer {
-            margin-top: 50px;
-            padding: 10px;
-            background-color: #ddd;
-            color: #333;
-            font-size: 0.9rem;
-            font-family: 'Tajawal', sans-serif;
-        }
-.whatsapp-btn {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 12px 20px;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: right;
         }
-        .whatsapp-btn:hover {
-            background-color: #1DA851;
+        .card-item {
+            margin-bottom: 10px;
         }
- .logo img {
-    width: 150px; /* تعديل العرض */
-    height: auto; /* الحفاظ على النسبة الأصلية */
-        margin-top: 15px;   
-}
+        .card-label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+        }
+        .card-value {
+            color: #000;
+        }
+        /* لإخفاء البطاقات التي لا تتطابق مع البحث */
+        .card.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <div class="logo">
-            <img src="logo.png" alt="Mahmoud Store Logo">
+
+<div class="container">
+    <h1>بيانات الاخوة</h1>
+    <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="ابحث عن الاسم الثلاثي...">
+    
+    <div class="card-container" id="cardContainer">
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد جهاد الخطيب</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">كوثر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4709775897523385</span>
+            </div>
         </div>
+
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد عبدالله حمدوني</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5986981420048655</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد علي اصلان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نادية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5422053243655122</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد كامل اليوسف</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">كريمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6354518050017301</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد محمد أبو حمدان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاتن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7710761331701298</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد محمد سعيد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8957301824210918</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد محمد غريبي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">شمسة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5192685864765600</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد مصطفى محمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ملك</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5455856381487056</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">اشرف حسام المرعي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">لينة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1477639680303362</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">اكرم مصطفى النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7285174482004048</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">انس احمد الكردي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هيام</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1628423442049695</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">إبراهيم عمر الخليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">محاسن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9551127315891800</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">أسامة احمد مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خيرية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2928203263129155</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">أسامة بكور الخليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نادية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5460896417331472</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">بسام محمد النابلسي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">أحلام</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1593402185012965</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">بشار عبد القادر شفيع</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">رويدة دالي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9406906913211500</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">بشار محمد ديب العقدة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امينة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2472046774099618</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حسن خالد الخطيب</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ناريمان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6103369652874221</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حسن يوسف النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ميساء</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2616155493599687</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حمدو هيثم حلوم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">رنا</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6762105108087832</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حمزة سمير الحمدان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2494648531911892</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حمزه مصطفى حبلص</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">صفاء</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3757064379710330</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">خالد عبد الرزاق محمد علوش</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سكرة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4948663452326676</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">زكريا محمود السرميني</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هالة المصطفى</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2856527961418196</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">زياد ناصر العون</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">منيرة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2193748104458259</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">سعد الدين حسين ابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نارية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3857662908639527</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">شادي إبراهيم مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ياسمين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8801578462673504</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">صالح صبحي خليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5417159175072359</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">صبحي يوسف خليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امينة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6746808679266396</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الحليم كامل اليوسف</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">كريمة الابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3556869355120341</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الرحيم مصطفى مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هاجر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4993814852102311</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الرحيم نصر العلي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7405918568134567</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الرزاق رمضان غريبي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3429893232509319</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الرزاق مصطفى الشمالي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">حجاز</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1911623178027836</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد السلام يوسف الابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">اخلاص</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1769168037705534</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد العزيز رسلان العثمان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">شوشن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4103377563963574</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الكريم اليوسف</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8270139998790710</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الكريم خالد الشمالي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">حلوم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9220037041080112</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد المعطي عمر الخليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">اشتياق</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8553045979064444</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبدالكريم محمد محمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">حياة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5366691776610476</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبدالله خالد مصطفى الفرج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5514422446849824</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبدالله عبدالكريم محمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نوفة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8726954959076459</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">علاء زهر الدين مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9488481142467524</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">علي محمد حمتو</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هنادي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9061856847449732</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمار احمد حزيريني</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">غادة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5398404452010661</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمار حسن العلو</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9777160138955236</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمر احمد حمود</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امينة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8809104361386592</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمر احمد رحمون</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8620518997582804</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمر حسن اصلان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">جيداء</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3416280713847001</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عمر فاروق العمر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خولة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6700603888465357</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عيسى مصطفى مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">جميلة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7385545457851171</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">غياث يوسف اصلان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مديرة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3964616880779997</td>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">فراس وليد مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">صبحية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7354347855071529</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">فواز عكلة الطاهي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ظعون</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7010696442031829</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">فياض محمد محمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ياسمين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9611121776094432</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد احمد العبدالله</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">0812002337466756</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد احمد عبيد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5752249274665282</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد أحمد لمحمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم دله</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1498702369824304</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد صبحي خليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7132675134361816</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد عبد الكريم نايف الخلف</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سمعة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7314677978003397</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد عبد الوهاب الغريبي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ناهد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6174818835601577</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد عبدالمنعيم الخليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3198499436125565</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد مالك الحسين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاديا</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9347326371889604</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد محمود العمر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7432172663987280</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد مصطفى خنوس</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2718263603060008</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد مصطفى مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هاجر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5784822510835433</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد يوسف اصلان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فلك</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9610672658912484</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد يوسف اصلان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مديرة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8554553184994155</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد يوسف سلوم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ميادة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9888135015995372</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد يونس الغريبي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7580995718205499</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمدعبد العزيز مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2071562042112537</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود احمد السرميني</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">داليا</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4741621746770920</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود احمد الضاهر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هناء</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1293579035127986</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود اكرم مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">رجاء</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">8953816245352485</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود حسن مصطفى</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امينة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4394339070288752</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود حسين مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سراء</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2737662256808401</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد عبدالرزاق كروم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سهام</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1688221916005118</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود علي الضاهر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نسرين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6734639546214260</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود محمد مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فلك</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">6301332115584103</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود مصطفى خليل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">جميلة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1797300607525228</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود يوسف الضاهر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مزنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7152643181809390</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى احمد مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فريال</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2094423710289283</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى أنور محمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">هند</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9280877693996648</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى فياض المحمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">غزالة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9055193029355760</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى لؤي كروم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1062384164977928</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى يوسف زيدان</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سمية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4773014567668782</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">منير إبراهيم الاذن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">عدوية عبدالرحمن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4689183896820236</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مهنا مصطفى النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">امنة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2970806357399270</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مهند احمد النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نورالهدى</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1497687348886426</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مهند سليمان إسماعيل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">صبحية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3729895135717779</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">نصار وجيه الرشيد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">سميرة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7095482167959169</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">هيثم برجس الأحمد</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">عبير</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5352835010789652</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">ياسر محمود الضاهر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مها</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5289364416770370</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">يوسف رحال الاسماعيل</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نعوس</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1753898132801377</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد حسان النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاديا</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3711185779993328</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد حسين رحال</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">جميلة اللور</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7678407183586646</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد نزير ددو</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فاطمة</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9196116625625836</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">عبد الهادي عبد اللطف البكور</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1547289688604898</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد علي البكور</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7076349316257039</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد احمد الابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خالدية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">4862491833210660</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حسن سلطان الابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">نجاح الابراهيم</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">7721264477258943</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى احمد الحسين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">عائشة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3933959556881037</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى عبد اللطيف البكور</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مريم</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">5206186256712415</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد عبد الناصر خطيب</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">حياة</td>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3405887579706754</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">انس احمد البكور</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">خديجة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2937455141090070</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد احمد الحسين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">عائشة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9296534836187004</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">مصطفى محمد الحسين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">زينب</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">3172778162899316</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد مصطفى الحسين</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">ريمة</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2655365586013426</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمد حسن مغلاج</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">فتحية الضاهر</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">9079814558376222</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">محمود احمد النوشي</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">بسيمة المحمود</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">1032681749409843</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">حسن احمد خاتون</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">زكية</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value">2432688494395406</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-item">
+                <span class="card-label">الاسم الثلاثي:</span>
+                <span class="card-value">احمد يحيى الكن</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">اسم الأم:</span>
+                <span class="card-value">مها الشريف</span>
+            </div>
+            <div class="card-item">
+                <span class="card-label">حساب شام كاش:</span>
+                <span class="card-value"></span>
+            </div>
+        </div>
+
     </div>
-    <p>MJ Store مرحبا بكم بــ </p>
-   
+</div>
 
-    <div class="products">
-        <div class="product">
-            <img src="mtn.png" alt="رصيد MTN">
-            <h3>MTN رصيد</h3>
-            <p>MTN رصيد</p>
-            <button onclick="window.location.href='mtn.html'">عرض</button>
-        </div>
+<script>
+    function filterCards() {
+        var input, filter, cardContainer, cards, cardValue, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cardContainer = document.getElementById("cardContainer");
+        cards = cardContainer.getElementsByClassName("card");
 
-        <div class="product">
-            <img src="syriatel.png" alt="رصيد Syriatel">
-            <h3>Syriatel رصيد</h3>
-            <p>Syriatel رصيد</p>
-            <button onclick="window.location.href='syriatel.html'">عرض</button>
-        </div>
+        for (i = 0; i < cards.length; i++) {
+            cardValue = cards[i].querySelector(".card-value").textContent || cards[i].querySelector(".card-value").innerText;
+            if (cardValue.toUpperCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
 
-        <div class="product">
-            <img src="pubg.png" alt="Pubg Mobile">
-            <h3>ببجي موبايل</h3>
-            <p>شدات ببجي موبايل</p>
-            <button onclick="window.location.href='pubg.html'">عرض</button>
-        </div>
-
-        <div class="product">
-            <img src="free.png" alt="Free Fire">
-            <h3>فري فاير</h3>
-            <p>جواهر فري فاير</p>
-            <button onclick="window.location.href='free.html'">عرض</button>
-        </div>
-    </div>
-<h3>اذا لم تجد المنتج المطلوب تواصل معنا</h3>
-<a class="whatsapp-btn" href="https://wa.me/+963947900160" target="_blank">للتواصل معنا على الواتساب</a>
-    <div class="footer">
-        © 2025 Mahmoud Store. جميع الحقوق محفوظة.
-        <p>برمجة وتصميم محمود مغلاج (الشب) </p>
-    </div>
 </body>
 </html>
